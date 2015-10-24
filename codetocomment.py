@@ -45,9 +45,11 @@ if(len(sys.argv) > 2 and sys.argv[2] == "-v"):
 
 else:
     if(ratio < 2):
-	print "***ERROR***"
-	print ": Not building"
-	print "Code:Comment Ratio is" + str(ratio)
+	print "*****************************************************"
+        print "\t\tCUSTOM ANALYSIS ERROR"
+        print "*****************************************************"
+	print "Not building"
+	print "Code:Comment Ratio is:" + str(ratio)
         print "Too few comments"
         exit(1)
 
