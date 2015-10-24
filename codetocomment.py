@@ -30,11 +30,21 @@ for file in codeFiles:
                 else:
                     code_count += 1
 
-print "*****************************************************"
-print "\t\tCUSTOM ANALYSIS"
-print "*****************************************************"
-print "Lines of Code:" + str(code_count)
-print "Lines of Comments:" + str(comment_count)
-code_to_comment_ratio = "{0:.2f}".format(float(code_count) / comment_count)
-print "Code to Comment Ratio:" + code_to_comment_ratio
-print "*****************************************************"
+
+ratio = round(float(code_count) / comment_count, 2)
+code_to_comment_ratio_str = "{0:.2f}".format(ratio)
+
+if(len(sys.argv) > 2 and sys.argv[2] == "-v"):
+    print "*****************************************************"
+    print "\t\tCUSTOM ANALYSIS"
+    print "*****************************************************"
+    print "Lines of Code:" + str(code_count)
+    print "Lines of Comments:" + str(comment_count)
+    print "Code to Comment Ratio:" + code_to_comment_ratio_str
+    print "*****************************************************"
+
+else:
+    if(ratio > 1.5):
+        print "Too few comments"
+        exit(1)
+
