@@ -45,6 +45,9 @@ if(len(sys.argv) > 2 and sys.argv[2] == "-v"):
 
 else:
     if(ratio > 1.5):
+	print "***ERROR***"
+	print ": Not building"
+	print "Code:Comment Ratio is" + str(ratio)
         print "Too few comments"
         exit(1)
 
