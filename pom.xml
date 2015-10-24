@@ -502,6 +502,7 @@
          see http://jira.codehaus.org/browse/MJAVADOC-370, remove after update to CP 32   -->
     <commons.javadoc.version>2.9.1</commons.javadoc.version>
     <cobertura.version>2.5.2</cobertura.version>
+    <findbugs.version>2.5.2</findbugs.version>
   </properties>
 
 
@@ -516,6 +517,11 @@
 		<format>xml</format>
 		</formats>
 		</configuration>
+	</plugin>
+	<plugin>
+	   <groupId>org.codehaus.mojo</groupId>
+	   <artifactId>findbugs-maven-plugin</artifactId>
+	   <version>${findbugs.version}</version>
 	</plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -574,6 +580,16 @@
 			</formats>
 		</configuration>
 	</plugin>
+	<plugin>
+           <groupId>org.codehaus.mojo</groupId>
+           <artifactId>findbugs-maven-plugin</artifactId>
+           <version>${findbugs.version}</version>
+           <configuration>
+		      <threshold>Normal</threshold>
+		      <effort>Default</effort>
+		      <excludeFilterFile>${basedir}/src/conf/findbugs-exclude-filter.xml</excludeFilterFile>
+	   </configuration>
+        </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-changes-plugin</artifactId>
